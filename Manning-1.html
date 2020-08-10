@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Usos de la ecuación de manning</title>
+<style>
+#content{
+	margin:10%;
+	}
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 50px;
+  text-align: center;
+}
+
+/* Style each tab content individually */
+#div1 {background-color:red;}
+#div2 {background-color:green;}
+#div3 {background-color:blue;}
+#div4 {background-color:orange;}
+}
+p{
+	color:rgb(255,255,255);
+	}
+</style>
+</head>
+
+<body>
+<div id=content>
+<button class="tablink" onclick="openCity('div1',this,'red')" id="defaultOpen">Rectangular</button>
+<button class="tablink" onclick="openCity('div2',this,'blue')">Circular</button>
+<button class="tablink" onclick="openCity('div3',this,'green')">Trapecial</button>
+<button class="tablink" onclick="openCity('div4',this,'yellow')">Triangular</button>
+
+<div class="tabcontent" id="div1">
+<form action="" method="" name="form" class="form">
+
+Plantilla: <input name="plantilla" type="text" size="10" maxlength="10" id="d"/>
+Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
+Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
+Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+<hr />
+<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
+<p></p>
+
+</form>
+</div>
+
+<div class="tabcontent" id="div2">
+<form action="" method="" name="form" class="form">
+
+Diametro: <input name="diametro" type="text" size="10" maxlength="10" id="d2"/>
+Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf2"/>
+Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n2"/>
+Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y2"/>
+<hr />
+<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
+<p></p>
+
+</form>
+</div>
+
+<div class="tabcontent" id="div3">
+<form action="" method="" name="form" class="form">
+
+Plantilla: <input name="plantilla" type="text" size="10" maxlength="10" id="d"/>
+Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
+Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
+Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+<hr />
+<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
+<p></p>
+
+</form>
+</div>
+
+<div class="tabcontent" id="div4">
+<form action="" method="" name="form" class="form">
+
+Diametro: <input name="diametro" type="text" size="10" maxlength="10" id="d"/>
+Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
+Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
+Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+<hr />
+<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
+<p></p>
+
+</form>
+</div>
+</div>
+
+<script>
+function mensaje(){
+var sf = document.getElementById("sf2").value;
+var d = document.getElementById("d2").value;
+var n = document.getElementById("n2").value;
+const PI = 3.1415;
+
+var A = PI*d*d/4;
+var RH = d/4;
+//var Q = caudal(d);
+var ninv = 1/n;
+var sfraiz = Math.pow(sf, 0.5);
+var Q = A * Math.pow(RH, 2/3) * ninv * sfraiz; 
+
+var p = document.querySelector("p");
+p.textContent = Q;
+}
+//function caudal(d){
+	//return (1/n)*A*(RH(2/3))*(Sf(1/2))
+	//}
+function openCity(cityName, elmnt, color) {
+  // Hide all elements with class="tabcontent" by default */
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Remove the background color of all tablinks/buttons
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+
+  // Show the specific tab content
+  document.getElementById(cityName).style.display = "block";
+
+  // Add the specific color to the button used to open the tab content
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+</body>
+</html>
