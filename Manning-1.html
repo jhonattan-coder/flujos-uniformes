@@ -5,13 +5,12 @@
 <title>Usos de la ecuación de manning</title>
 <style>
 #content{
-	margin:10%;
+	margin:10% 6%;
 	}
 .tablink {
-  background-color: #555;
-  color: white;
+  background-color: rgb(204,204,204);
   float: left;
-  border: none;
+  border: solid 1px rgb(153,153,153);
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
@@ -26,109 +25,152 @@
 
 /* Set default styles for tab content */
 .tabcontent {
-  color: white;
   display: none;
   padding: 50px;
   text-align: center;
+  border: solid 1px rgb(153,153,153);
 }
 
 /* Style each tab content individually */
-#div1 {background-color:red;}
-#div2 {background-color:green;}
-#div3 {background-color:blue;}
-#div4 {background-color:orange;}
+#div1 {background-color:white;}
+#div2 {background-color:white;}
+#div3 {background-color:white;}
+#div4 {background-color:white;}
 }
-p{
-	color:rgb(255,255,255);
-	}
 </style>
 </head>
 
 <body>
 <div id=content>
-<button class="tablink" onclick="openCity('div1',this,'red')" id="defaultOpen">Rectangular</button>
-<button class="tablink" onclick="openCity('div2',this,'blue')">Circular</button>
-<button class="tablink" onclick="openCity('div3',this,'green')">Trapecial</button>
-<button class="tablink" onclick="openCity('div4',this,'yellow')">Triangular</button>
+<button class="tablink" onclick="openTab('div1',this,'gray')" id="defaultOpen">Rectangular</button>
+<button class="tablink" onclick="openTab('div2',this,'gray')">Circular</button>
+<button class="tablink" onclick="openTab('div3',this,'gray')">Trapecial</button>
+<button class="tablink" onclick="openTab('div4',this,'gray')">Triangular</button>
 
 <div class="tabcontent" id="div1">
-<form action="" method="" name="form" class="form">
+<form action="" method="" name="" class="">
 
-Plantilla: <input name="plantilla" type="text" size="10" maxlength="10" id="d"/>
-Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
-Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
-Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+Plantilla (m): <input name="plantilla1" type="text" size="10" maxlength="10" id="b1"/>
+Pendiente (dec.): <input name="pendiente1" type="text" size="10" maxlength="10" id="sf1"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning1" type="text" size="10" maxlength="10" id="n1"/>
+Profundidad (m): <input name="profundidad1" type="text" size="10" maxlength="10" id="y1"/>
 <hr />
-<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
-<p></p>
+<input name="btn1" type="button" id="calcular1" value="calcular" onclick="funcion()"/>
+<p id="p1"></p>
 
 </form>
 </div>
 
 <div class="tabcontent" id="div2">
-<form action="" method="" name="form" class="form">
+<form action="" method="" name="" class="">
 
-Diametro: <input name="diametro" type="text" size="10" maxlength="10" id="d2"/>
-Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf2"/>
-Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n2"/>
-Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y2"/>
+Diametro (m): <input name="diametro2" type="text" size="10" maxlength="10" id="d2"/>
+Pendiente (dec.): <input name="pendiente2" type="text" size="10" maxlength="10" id="sf2"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning2" type="text" size="10" maxlength="10" id="n2"/>
+Profundidad (m): <input name="profundidad2" type="text" size="10" maxlength="10" id="y2"/>
 <hr />
-<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
-<p></p>
+<input name="btn2" type="button" id="calcular2" value="calcular" onclick="flow_unif_channel_circle()"/>
+<p id="p2"></p>
 
 </form>
 </div>
 
 <div class="tabcontent" id="div3">
-<form action="" method="" name="form" class="form">
+<form action="" method="" name="" class="">
 
-Plantilla: <input name="plantilla" type="text" size="10" maxlength="10" id="d"/>
-Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
-Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
-Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+Plantilla (m): <input name="plantilla3" type="text" size="5" maxlength="5" id="b3"/>
+Pendiente lateral-z: <input name="pendienteLateral3" type="text" size="5" maxlength="5" id="z3"/> 
+Pendiente (dec.): <input name="pendiente3" type="text" size="5" maxlength="5" id="sf3"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning3" type="text" size="5" maxlength="5" id="n3"/>
+Profundidad (m): <input name="profundidad3" type="text" size="5" maxlength="5" id="y3"/>
 <hr />
-<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
-<p></p>
+<input name="btn3" type="button" id="calcular3" value="calcular" onclick="flow_unif_channel_trap()"/>
+<p id="p3"></p>
 
 </form>
 </div>
 
 <div class="tabcontent" id="div4">
-<form action="" method="" name="form" class="form">
+<form action="" method="" name="" class="">
 
-Diametro: <input name="diametro" type="text" size="10" maxlength="10" id="d"/>
-Pendiente: <input name="pendiente" type="text" size="10" maxlength="10" id="sf"/>
-Material: (rugosidad de manning) <input name="rugosidad de manning" type="text" size="10" maxlength="10" id="n"/>
-Profundidad: <input name="profundidad" type="text" size="10" maxlength="10" id="y"/>
+Pendiente lateral-z: <input name="pendienteLateral4" type="text" size="10" maxlength="10" id="z4"/>
+Pendiente (dec.): <input name="pendiente4" type="text" size="10" maxlength="10" id="sf4"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning4" type="text" size="10" maxlength="10" id="n4"/>
+Profundidad (m): <input name="profundidad4" type="text" size="10" maxlength="10" id="y4"/>
 <hr />
-<input name="btn" type="button" id="calcular" value="calcular" onclick="mensaje()"/>
-<p></p>
+<input name="btn4" type="button" id="calcular4" value="calcular" onclick="mensaje()"/>
+<p id="p4"></p>
 
 </form>
 </div>
 </div>
 
 <script>
-function mensaje(){
-var sf = document.getElementById("sf2").value;
-var d = document.getElementById("d2").value;
-var n = document.getElementById("n2").value;
+
+//////////////////////////////// Ecuaciones del flujo uniforme en canal circular ////////////////////////////////////
+function flow_unif_channel_circle(){
+var d = parseFloat(document.getElementById("d2").value);
+var sf = parseFloat(document.getElementById("sf2").value);
+var n = parseFloat(document.getElementById("n2").value);
+var y = parseFloat(document.getElementById("y2").value);
 const PI = 3.1415;
-
-var A = PI*d*d/4;
-var RH = d/4;
-//var Q = caudal(d);
-var ninv = 1/n;
-var sfraiz = Math.pow(sf, 0.5);
-var Q = A * Math.pow(RH, 2/3) * ninv * sfraiz; 
-
-var p = document.querySelector("p");
-p.textContent = Q;
+	if(d==y){
+	var A = PI*d*d/4;
+	var RH = d/4;
+	var Q = caudal(n,A,RH,sf);
+	var p = document.getElementById("p2");
+	p.textContent = 'Flujo :' + Q + ' m3/s';
+	}
+	if(d>y && y>0){
+	var r =d/2;
+	var ang = 2*Math.acos(1-(y/r));
+	var A = (1/2)*(Math.pow(r,2))*(ang-(Math.sin(ang)));
+	var P = ang*r;
+	var RH = A/P;
+	var Q = caudal(n,A,RH,sf);
+	var p = document.getElementById("p2");
+	p.textContent = 'Flujo :' + Q + ' m3/s';
+	}
+	if(y>d){
+	var p = document.getElementById("p2");
+	p.textContent = 'La profundidad no debe ser mayor al diámetro del conducto';
+	}
+	if(y<=0){
+	var p = document.getElementById("p2");
+	p.textContent = 'La profundidad no debe ser un valor negativo ni nulo';
+	}
 }
-//function caudal(d){
-	//return (1/n)*A*(RH(2/3))*(Sf(1/2))
-	//}
-function openCity(cityName, elmnt, color) {
+
+//////////////////////////////// Ecuaciones del flujo uniforme en canal trapecial ////////////////////////////////////
+function flow_unif_channel_trap(){
+var b = parseFloat(document.getElementById("b3").value);
+var z = parseFloat(document.getElementById("z3").value);
+var sf = parseFloat(document.getElementById("sf3").value);
+var n = parseFloat(document.getElementById("n3").value);
+var y = parseFloat(document.getElementById("y3").value);
+
+	if(b>0 && y>0 && z>=0 && sf>=0 && n>0){
+	var A = (b + (z * y)) * y;
+	var P = b+((2*y)*(Math.pow(1+z*z,1/2)));
+	var RH = A/P;
+	var Q = caudal(n,A,RH,sf);
+	var p = document.getElementById("p3");
+	p.textContent = 'Flujo :' + Q + ' m3/s';
+	}
+	if(b<=0 || y<=0 || z<0 || sf<0 || n<=0){
+	var p = document.getElementById("p3");
+	p.textContent = 'La información no es válida';
+	}
+}
+
+
+function caudal(n,A,RH,sf){
+	var Pot_RH = Math.pow(RH,2/3);
+	var Pot_sf = Math.pow(sf,1/2);
+	return 1/n * A * Pot_RH * Pot_sf; 
+}
+
+function openTab(id, elmnt, color) {
   // Hide all elements with class="tabcontent" by default */
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -143,7 +185,7 @@ function openCity(cityName, elmnt, color) {
   }
 
   // Show the specific tab content
-  document.getElementById(cityName).style.display = "block";
+  document.getElementById(id).style.display = "block";
 
   // Add the specific color to the button used to open the tab content
   elmnt.style.backgroundColor = color;
