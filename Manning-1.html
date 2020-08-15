@@ -3,67 +3,34 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Usos de la ecuación de manning</title>
-<style>
-#content{
-	margin:10% 6%;
-	}
-.tablink {
-  background-color: rgb(204,204,204);
-  float: left;
-  border: solid 1px rgb(153,153,153);
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 25%;
-}
-
-/* Change background color of buttons on hover */
-.tablink:hover {
-  background-color: #777;
-}
-
-/* Set default styles for tab content */
-.tabcontent {
-  display: none;
-  padding: 50px;
-  text-align: center;
-  border: solid 1px rgb(153,153,153);
-}
-
-/* Style each tab content individually */
-#div1 {background-color:white;}
-#div2 {background-color:white;}
-#div3 {background-color:white;}
-#div4 {background-color:white;}
-}
-</style>
+<link href="estilos.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="ecuaciones.js"></script>
 </head>
 
 <body>
 <div id=content>
-<button class="tablink" onclick="openTab('div1',this,'gray')" id="defaultOpen">Rectangular</button>
-<button class="tablink" onclick="openTab('div2',this,'gray')">Circular</button>
-<button class="tablink" onclick="openTab('div3',this,'gray')">Trapecial</button>
-<button class="tablink" onclick="openTab('div4',this,'gray')">Triangular</button>
+<!-- Ventanas del calculo de caudales normales -->
+<h1>Cálculo de Caudales</h1>
+<button class="tablink" onclick="openTab('div1',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')" id="defaultOpen1">Rectangular</button>
+<button class="tablink" onclick="openTab('div2',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Circular</button>
+<button class="tablink" onclick="openTab('div3',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Trapecial</button>
+<button class="tablink" onclick="openTab('div4',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Triangular</button>
 
-<div class="tabcontent" id="div1">
+<div class="tabcontent1" id="div1">
 <form action="" method="" name="" class="">
-
 Plantilla (m): <input name="plantilla1" type="text" size="10" maxlength="10" id="b1"/>
 Pendiente (dec.): <input name="pendiente1" type="text" size="10" maxlength="10" id="sf1"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning1" type="text" size="10" maxlength="10" id="n1"/>
 Profundidad (m): <input name="profundidad1" type="text" size="10" maxlength="10" id="y1"/>
 <hr />
-<input name="btn1" type="button" id="calcular1" value="calcular" onclick="funcion()"/>
+<input name="btn1" type="button" id="calcular1" value="calcular" onclick="flow_unif_channel_rect()"/>
 <p id="p1"></p>
 
 </form>
 </div>
 
-<div class="tabcontent" id="div2">
+<div class="tabcontent1" id="div2">
 <form action="" method="" name="" class="">
-
 Diametro (m): <input name="diametro2" type="text" size="10" maxlength="10" id="d2"/>
 Pendiente (dec.): <input name="pendiente2" type="text" size="10" maxlength="10" id="sf2"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning2" type="text" size="10" maxlength="10" id="n2"/>
@@ -75,9 +42,8 @@ Profundidad (m): <input name="profundidad2" type="text" size="10" maxlength="10"
 </form>
 </div>
 
-<div class="tabcontent" id="div3">
+<div class="tabcontent1" id="div3">
 <form action="" method="" name="" class="">
-
 Plantilla (m): <input name="plantilla3" type="text" size="5" maxlength="5" id="b3"/>
 Pendiente lateral-z: <input name="pendienteLateral3" type="text" size="5" maxlength="5" id="z3"/> 
 Pendiente (dec.): <input name="pendiente3" type="text" size="5" maxlength="5" id="sf3"/>
@@ -90,109 +56,80 @@ Profundidad (m): <input name="profundidad3" type="text" size="5" maxlength="5" i
 </form>
 </div>
 
-<div class="tabcontent" id="div4">
+<div class="tabcontent1" id="div4">
 <form action="" method="" name="" class="">
-
 Pendiente lateral-z: <input name="pendienteLateral4" type="text" size="10" maxlength="10" id="z4"/>
 Pendiente (dec.): <input name="pendiente4" type="text" size="10" maxlength="10" id="sf4"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning4" type="text" size="10" maxlength="10" id="n4"/>
 Profundidad (m): <input name="profundidad4" type="text" size="10" maxlength="10" id="y4"/>
 <hr />
-<input name="btn4" type="button" id="calcular4" value="calcular" onclick="mensaje()"/>
+<input name="btn4" type="button" id="calcular4" value="calcular" onclick="flow_unif_channel_trian()"/>
+<p id="p4"></p>
+
+</form>
+</div><br /><br />
+
+<!-- Ventanas del calculo de profundidades normales -->
+
+<h1>Cálculo de la Profundidad normal</h1>
+<button class="tablink" onclick="openTab('div5',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')" id="defaultOpen2">Rectangular</button>
+<button class="tablink" onclick="openTab('div6',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Circular</button>
+<button class="tablink" onclick="openTab('div7',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Trapecial</button>
+<button class="tablink" onclick="openTab('div8',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Triangular</button>
+
+<div class="tabcontent2" id="div5">
+<form action="" method="" name="" class="">
+Plantilla (m): <input name="plantilla5" type="text" size="10" maxlength="10" id="b5"/>
+Pendiente (dec.): <input name="pendiente5" type="text" size="10" maxlength="10" id="sf5"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning5" type="text" size="10" maxlength="10" id="n5"/>
+Caudal (m/s3): <input name="caudal5" type="text" size="10" maxlength="10" id="q5"/>
+<hr />
+<input name="btn5" type="button" id="calcular5" value="calcular" onclick="heigth_unif_channel_rect()"/>
+<p id="p5"></p>
+
+</form>
+</div>
+
+<div class="tabcontent2" id="div6">
+<form action="" method="" name="" class="">
+Diametro (m): <input name="diametro6" type="text" size="10" maxlength="10" id="d6"/>
+Pendiente (dec.): <input name="pendiente6" type="text" size="10" maxlength="10" id="sf6"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning6" type="text" size="10" maxlength="10" id="n6"/>
+Caudal (m/s3): <input name="caudal6" type="text" size="10" maxlength="10" id="q6"/>
+<hr />
+<input name="btn6" type="button" id="calcular6" value="calcular" onclick="heigth_unif_channel_circle()"/>
+<p id="p6"></p>
+
+</form>
+</div>
+
+<div class="tabcontent2" id="div7">
+<form action="" method="" name="" class="">
+Plantilla (m): <input name="plantilla3" type="text" size="5" maxlength="5" id="b3"/>
+Pendiente lateral-z: <input name="pendienteLateral3" type="text" size="5" maxlength="5" id="z3"/> 
+Pendiente (dec.): <input name="pendiente3" type="text" size="5" maxlength="5" id="sf3"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning3" type="text" size="5" maxlength="5" id="n3"/>
+Profundidad (m): <input name="profundidad3" type="text" size="5" maxlength="5" id="y3"/>
+<hr />
+<input name="btn3" type="button" id="calcular3" value="calcular" onclick="heigth_unif_channel_trap()"/>
+<p id="p3"></p>
+
+</form>
+</div>
+
+<div class="tabcontent2" id="div8">
+<form action="" method="" name="" class="">
+Pendiente lateral-z: <input name="pendienteLateral4" type="text" size="10" maxlength="10" id="z4"/>
+Pendiente (dec.): <input name="pendiente4" type="text" size="10" maxlength="10" id="sf4"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning4" type="text" size="10" maxlength="10" id="n4"/>
+Profundidad (m): <input name="profundidad4" type="text" size="10" maxlength="10" id="y4"/>
+<hr />
+<input name="btn4" type="button" id="calcular4" value="calcular" onclick="heigth_unif_channel_trian()"/>
 <p id="p4"></p>
 
 </form>
 </div>
+
 </div>
-
-<script>
-
-//////////////////////////////// Ecuaciones del flujo uniforme en canal circular ////////////////////////////////////
-function flow_unif_channel_circle(){
-var d = parseFloat(document.getElementById("d2").value);
-var sf = parseFloat(document.getElementById("sf2").value);
-var n = parseFloat(document.getElementById("n2").value);
-var y = parseFloat(document.getElementById("y2").value);
-const PI = 3.1415;
-	if(d==y){
-	var A = PI*d*d/4;
-	var RH = d/4;
-	var Q = caudal(n,A,RH,sf);
-	var p = document.getElementById("p2");
-	p.textContent = 'Flujo :' + Q + ' m3/s';
-	}
-	if(d>y && y>0){
-	var r =d/2;
-	var ang = 2*Math.acos(1-(y/r));
-	var A = (1/2)*(Math.pow(r,2))*(ang-(Math.sin(ang)));
-	var P = ang*r;
-	var RH = A/P;
-	var Q = caudal(n,A,RH,sf);
-	var p = document.getElementById("p2");
-	p.textContent = 'Flujo :' + Q + ' m3/s';
-	}
-	if(y>d){
-	var p = document.getElementById("p2");
-	p.textContent = 'La profundidad no debe ser mayor al diámetro del conducto';
-	}
-	if(y<=0){
-	var p = document.getElementById("p2");
-	p.textContent = 'La profundidad no debe ser un valor negativo ni nulo';
-	}
-}
-
-//////////////////////////////// Ecuaciones del flujo uniforme en canal trapecial ////////////////////////////////////
-function flow_unif_channel_trap(){
-var b = parseFloat(document.getElementById("b3").value);
-var z = parseFloat(document.getElementById("z3").value);
-var sf = parseFloat(document.getElementById("sf3").value);
-var n = parseFloat(document.getElementById("n3").value);
-var y = parseFloat(document.getElementById("y3").value);
-
-	if(b>0 && y>0 && z>=0 && sf>=0 && n>0){
-	var A = (b + (z * y)) * y;
-	var P = b+((2*y)*(Math.pow(1+z*z,1/2)));
-	var RH = A/P;
-	var Q = caudal(n,A,RH,sf);
-	var p = document.getElementById("p3");
-	p.textContent = 'Flujo :' + Q + ' m3/s';
-	}
-	if(b<=0 || y<=0 || z<0 || sf<0 || n<=0){
-	var p = document.getElementById("p3");
-	p.textContent = 'La información no es válida';
-	}
-}
-
-
-function caudal(n,A,RH,sf){
-	var Pot_RH = Math.pow(RH,2/3);
-	var Pot_sf = Math.pow(sf,1/2);
-	return 1/n * A * Pot_RH * Pot_sf; 
-}
-
-function openTab(id, elmnt, color) {
-  // Hide all elements with class="tabcontent" by default */
-  var i, tabcontent, tablinks;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
-
-  // Remove the background color of all tablinks/buttons
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-
-  // Show the specific tab content
-  document.getElementById(id).style.display = "block";
-
-  // Add the specific color to the button used to open the tab content
-  elmnt.style.backgroundColor = color;
-}
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
 </body>
 </html>
