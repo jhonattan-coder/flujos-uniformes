@@ -11,11 +11,11 @@
 <div id=content>
 <!-- Ventanas del calculo de caudales normales -->
 <h1>Cálculo de Caudales</h1>
-<button class="tablink" onclick="openTab('div1',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')" id="defaultOpen1">Rectangular</button>
-<button class="tablink" onclick="openTab('div2',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Circular</button>
-<button class="tablink" onclick="openTab('div3',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Trapecial</button>
-<button class="tablink" onclick="openTab('div4',this,'rgb(204,204,204)','tabcontent1','defaultOpen1')">Triangular</button>
-
+<button class="tablink1" onclick="openTab('div1',this,'rgb(204,204,204)','tablink1','tabcontent1','defaultOpen1')" id="defaultOpen1">Rectangular</button>
+<button class="tablink1" onclick="openTab('div2',this,'rgb(204,204,204)','tablink1','tabcontent1','defaultOpen1')">Circular</button>
+<button class="tablink1" onclick="openTab('div3',this,'rgb(204,204,204)','tablink1','tabcontent1','defaultOpen1')">Trapezoidal</button>
+<button class="tablink1" onclick="openTab('div4',this,'rgb(204,204,204)','tablink1','tabcontent1','defaultOpen1')">Triangular</button>
+<br />
 <div class="tabcontent1" id="div1">
 <form action="" method="" name="" class="">
 Plantilla (m): <input name="plantilla1" type="text" size="10" maxlength="10" id="b1"/>
@@ -31,12 +31,12 @@ Profundidad (m): <input name="profundidad1" type="text" size="10" maxlength="10"
 
 <div class="tabcontent1" id="div2">
 <form action="" method="" name="" class="">
-Diametro (m): <input name="diametro2" type="text" size="10" maxlength="10" id="d2"/>
+Diámetro (m): <input name="diametro2" type="text" size="10" maxlength="10" id="d2"/>
 Pendiente (dec.): <input name="pendiente2" type="text" size="10" maxlength="10" id="sf2"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning2" type="text" size="10" maxlength="10" id="n2"/>
 Profundidad (m): <input name="profundidad2" type="text" size="10" maxlength="10" id="y2"/>
 <hr />
-<input name="btn2" type="button" id="calcular2" value="calcular" onclick="flow_unif_channel_circle()"/>
+<input name="btn2" type="button" id="calcular2" value="calcular" onclick="flow_unif_channel_circ()"/>
 <p id="p2"></p>
 
 </form>
@@ -72,19 +72,19 @@ Profundidad (m): <input name="profundidad4" type="text" size="10" maxlength="10"
 <!-- Ventanas del calculo de profundidades normales -->
 
 <h1>Cálculo de la Profundidad normal</h1>
-<button class="tablink" onclick="openTab('div5',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')" id="defaultOpen2">Rectangular</button>
-<button class="tablink" onclick="openTab('div6',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Circular</button>
-<button class="tablink" onclick="openTab('div7',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Trapecial</button>
-<button class="tablink" onclick="openTab('div8',this,'rgb(204,204,204)','tabcontent2','defaultOpen2')">Triangular</button>
-
+<button class="tablink2" onclick="openTab('div5',this,'rgb(204,204,204)','tablink2','tabcontent2','defaultOpen2')" id="defaultOpen2">Rectangular</button>
+<button class="tablink2" onclick="openTab('div6',this,'rgb(204,204,204)','tablink2','tabcontent2','defaultOpen2')">Circular</button>
+<button class="tablink2" onclick="openTab('div7',this,'rgb(204,204,204)','tablink2','tabcontent2','defaultOpen2')">Trapezoidal</button>
+<button class="tablink2" onclick="openTab('div8',this,'rgb(204,204,204)','tablink2','tabcontent2','defaultOpen2')">Triangular</button>
+<br />
 <div class="tabcontent2" id="div5">
 <form action="" method="" name="" class="">
 Plantilla (m): <input name="plantilla5" type="text" size="10" maxlength="10" id="b5"/>
 Pendiente (dec.): <input name="pendiente5" type="text" size="10" maxlength="10" id="sf5"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning5" type="text" size="10" maxlength="10" id="n5"/>
-Caudal (m/s3): <input name="caudal5" type="text" size="10" maxlength="10" id="q5"/>
+Caudal (m/3s): <input name="caudal5" type="text" size="10" maxlength="10" id="q5"/>
 <hr />
-<input name="btn5" type="button" id="calcular5" value="calcular" onclick="heigth_unif_channel_rect()"/>
+<input name="btn5" type="button" id="calcular5" value="calcular" onclick="tiran_unif_canal_rect()"/>
 <p id="p5"></p>
 
 </form>
@@ -92,12 +92,12 @@ Caudal (m/s3): <input name="caudal5" type="text" size="10" maxlength="10" id="q5
 
 <div class="tabcontent2" id="div6">
 <form action="" method="" name="" class="">
-Diametro (m): <input name="diametro6" type="text" size="10" maxlength="10" id="d6"/>
+Diámetro (m): <input name="diametro6" type="text" size="10" maxlength="10" id="d6"/>
 Pendiente (dec.): <input name="pendiente6" type="text" size="10" maxlength="10" id="sf6"/>
 Material-rugosidad de manning (dec.): <input name="rugosidad de manning6" type="text" size="10" maxlength="10" id="n6"/>
-Caudal (m/s3): <input name="caudal6" type="text" size="10" maxlength="10" id="q6"/>
+Caudal (m3/s): <input name="caudal6" type="text" size="10" maxlength="10" id="q6"/>
 <hr />
-<input name="btn6" type="button" id="calcular6" value="calcular" onclick="heigth_unif_channel_circle()"/>
+<input name="btn6" type="button" id="calcular6" value="calcular" onclick="tiran_unif_canal_circ()"/>
 <p id="p6"></p>
 
 </form>
@@ -105,31 +105,82 @@ Caudal (m/s3): <input name="caudal6" type="text" size="10" maxlength="10" id="q6
 
 <div class="tabcontent2" id="div7">
 <form action="" method="" name="" class="">
-Plantilla (m): <input name="plantilla3" type="text" size="5" maxlength="5" id="b3"/>
-Pendiente lateral-z: <input name="pendienteLateral3" type="text" size="5" maxlength="5" id="z3"/> 
-Pendiente (dec.): <input name="pendiente3" type="text" size="5" maxlength="5" id="sf3"/>
-Material-rugosidad de manning (dec.): <input name="rugosidad de manning3" type="text" size="5" maxlength="5" id="n3"/>
-Profundidad (m): <input name="profundidad3" type="text" size="5" maxlength="5" id="y3"/>
+Plantilla (m): <input name="plantilla7" type="text" size="5" maxlength="5" id="b7"/>
+Pendiente lateral-z: <input name="pendienteLateral7" type="text" size="5" maxlength="5" id="z7"/> 
+Pendiente (dec.): <input name="pendiente7" type="text" size="5" maxlength="5" id="sf7"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning7" type="text" size="5" maxlength="5" id="n7"/>
+Caudal (m3/s): <input name="caudal7" type="text" size="5" maxlength="5" id="q7"/>
 <hr />
-<input name="btn3" type="button" id="calcular3" value="calcular" onclick="heigth_unif_channel_trap()"/>
-<p id="p3"></p>
+<input name="btn7" type="button" id="calcular7" value="calcular" onclick="tiran_unif_canal_trap()"/>
+<p id="p7"></p>
 
 </form>
 </div>
 
 <div class="tabcontent2" id="div8">
 <form action="" method="" name="" class="">
-Pendiente lateral-z: <input name="pendienteLateral4" type="text" size="10" maxlength="10" id="z4"/>
-Pendiente (dec.): <input name="pendiente4" type="text" size="10" maxlength="10" id="sf4"/>
-Material-rugosidad de manning (dec.): <input name="rugosidad de manning4" type="text" size="10" maxlength="10" id="n4"/>
-Profundidad (m): <input name="profundidad4" type="text" size="10" maxlength="10" id="y4"/>
+Pendiente lateral-z: <input name="pendienteLateral8" type="text" size="10" maxlength="10" id="z8"/>
+Pendiente (dec.): <input name="pendiente8" type="text" size="10" maxlength="10" id="sf8"/>
+Material-rugosidad de manning (dec.): <input name="rugosidad de manning8" type="text" size="10" maxlength="10" id="n8"/>
+Caudal (m3/s): <input name="caudal8" type="text" size="10" maxlength="10" id="q8"/>
 <hr />
-<input name="btn4" type="button" id="calcular4" value="calcular" onclick="heigth_unif_channel_trian()"/>
-<p id="p4"></p>
+<input name="btn8" type="button" id="calcular8" value="calcular" onclick="tiran_unif_canal_trian()"/>
+<p id="p8"></p>
+
+</form>
+</div><br /><br />
+<!-- Ventanas del calculo de profundidades criticas -->
+
+<h1>Cálculo de la Profundidad crítica</h1>
+<button class="tablink3" onclick="openTab('div9',this,'rgb(204,204,204)','tablink3','tabcontent3','defaultOpen3')" id="defaultOpen3">Rectangular</button>
+<button class="tablink3" onclick="openTab('div10',this,'rgb(204,204,204)','tablink3','tabcontent3','defaultOpen3')">Circular</button>
+<button class="tablink3" onclick="openTab('div11',this,'rgb(204,204,204)','tablink3','tabcontent3','defaultOpen3')">Trapezoidal</button>
+<button class="tablink3" onclick="openTab('div12',this,'rgb(204,204,204)','tablink3','tabcontent3','defaultOpen3')">Triangular</button>
+<br />
+<div class="tabcontent3" id="div9">
+<form action="" method="" name="" class="">
+Plantilla (m): <input name="plantilla9" type="text" size="10" maxlength="10" id="b9"/>
+Caudal (m/3s): <input name="caudal5" type="text" size="10" maxlength="10" id="q5"/>
+<hr />
+<input name="btn9" type="button" id="calcular9" value="calcular" onclick="tiran_crit_canal_rect()"/>
+<p id="p9"></p>
 
 </form>
 </div>
 
+<div class="tabcontent3" id="div10">
+<form action="" method="" name="" class="">
+Diámetro (m): <input name="diametro10" type="text" size="10" maxlength="10" id="d10"/>
+Caudal (m3/s): <input name="caudal10" type="text" size="10" maxlength="10" id="q10"/>
+<hr />
+<input name="btn10" type="button" id="calcular10" value="calcular" onclick="tiran_crit_canal_circ()"/>
+<p id="p10"></p>
+
+</form>
+</div>
+
+<div class="tabcontent3" id="div11">
+<form action="" method="" name="" class="">
+Plantilla (m): <input name="plantilla11" type="text" size="5" maxlength="5" id="b11"/>
+Pendiente lateral-z: <input name="pendienteLateral11" type="text" size="5" maxlength="5" id="z11"/> 
+Caudal (m3/s): <input name="caudal11" type="text" size="5" maxlength="5" id="q11"/>
+<hr />
+<input name="btn11" type="button" id="calcular11" value="calcular" onclick="tiran_crit_canal_trap()"/>
+<p id="p11"></p>
+
+</form>
+</div>
+
+<div class="tabcontent3" id="div12">
+<form action="" method="" name="" class="">
+Pendiente lateral-z: <input name="pendienteLateral12" type="text" size="10" maxlength="10" id="z12"/>
+Caudal (m3/s): <input name="caudal12" type="text" size="10" maxlength="10" id="q12"/>
+<hr />
+<input name="btn12" type="button" id="calcular12" value="calcular" onclick="tiran_crit_canal_trian()"/>
+<p id="p11"></p>
+
+</form>
+</div>
 </div>
 </body>
 </html>
